@@ -1,3 +1,9 @@
+/* 
+  game.js
+  Represents the game instance.
+  Manages the game state, including players, ball, and UI.
+*/
+
 class Game {
   constructor(canvas, player1Name, player2Name) {
     this.canvas = canvas;
