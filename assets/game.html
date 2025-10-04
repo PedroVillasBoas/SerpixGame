@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnaPonTher - Game</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="game-container">
+        <div class="header">
+            <div id="p1-score-card" class="score-card">
+                <h2 id="p1-name">Player 1</h2>
+                <p>Lives: <span id="p1-lives">3</span></p>
+                <p>Score: <span id="p1-score">0</span></p>
+            </div>
+            <div class="timer">
+                <h3>Time</h3>
+                <span id="stopwatch">00:00</span>
+            </div>
+            <div id="p2-score-card" class="score-card">
+                <h2 id="p2-name">Player 2</h2>
+                <p>Lives: <span id="p2-lives">3</span></p>
+                <p>Score: <span id="p2-score">0</span></p>
+            </div>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <div class="footer">
+            <div class="events-log">
+                <h3>Event Log</h3>
+                <ul id="events-list">
+                </ul>
+            </div>
+            <div class="leaderboard">
+                <h3>Leaderboard</h3>
+                <table id="leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th>Winner</th>
+                            <th>Time</th>
+                            <th>P1 Score</th>
+                            <th>P2 Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/storage.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/input.js"></script>
+    <script src="js/ball.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
