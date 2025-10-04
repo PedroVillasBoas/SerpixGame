@@ -4,13 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serpix - Home</title>
+    <title>Serpix - Setup</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
+    <div class="background">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
     <div class="container">
-        <h1>Serpix</h1>
+        <img src="visual/img/logo.png" alt="Serpix Logo" class="logo">
         <p>A hybrid of Snake, Pong, and Slither.io</p>
         <form id="setup-form">
             <div class="form-group">
@@ -23,8 +31,29 @@
             </div>
             <button type="submit">Start Game</button>
         </form>
+        <button id="leaderboard-btn">Leaderboard</button>
     </div>
 
+    <div id="leaderboard-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>Leaderboard</h3>
+            <table id="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>Winner</th>
+                        <th>Time</th>
+                        <th>P1 Score</th>
+                        <th>P2 Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="js/storage.js" defer></script>
     <script src="js/setup.js" defer></script>
 </body>
 
