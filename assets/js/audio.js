@@ -12,13 +12,15 @@ class AudioManager {
 
     loadSounds() {
         // Preload SFX
-        this.sounds.eat = new Audio('assets/sfx/eat.wav');
-        this.sounds.collide = new Audio('assets/sfx/collide.wav');
-        
+        this.sounds.buttonHover = new Audio('audio/buttonHover.wav');
+        this.sounds.collide = new Audio('audio/collide.wav');
+        this.sounds.eat = new Audio('audio/eat.wav');
+        this.sounds.win = new Audio('audio/yay.wav');
+
         // Preload BG Music
-        this.music = new Audio('assets/sfx/background_music.mp3');
+        this.music = new Audio('audio/background_music.mp3');
         this.music.loop = true;
-        this.music.volume = 1.0;
+        this.music.volume = 0.5;
     }
 
     playSound(name) {

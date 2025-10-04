@@ -144,6 +144,7 @@ class Game {
 
     const winner = this.player1.lives > 0 ? this.player1 : this.player2;
     this.ui.showGameOver(winner.name);
+    this.audio.playSound('win');
 
     const result = {
       winner: winner.name,

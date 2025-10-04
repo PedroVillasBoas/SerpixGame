@@ -200,12 +200,12 @@ li {
 }
 
 .home-container {
-    max-width: 450px; /* Constrains the width of the setup form */
+    max-width: 450px;
 }
 
 /* --- Game Page --- */
 body.game-page {
-    display: block; /* Override the flex layout */
+    display: block;
     height: auto;
     padding-top: 1rem;
 }
