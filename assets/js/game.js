@@ -152,6 +152,8 @@ class Game {
       timeFormatted: this.ui.stopwatch.textContent,
       p1Score: this.player1.score,
       p2Score: this.player2.score,
+      p1Lives: this.player1.lives,
+      p2Lives: this.player2.lives
     };
 
     this.storage.saveResult(result);

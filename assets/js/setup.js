@@ -57,13 +57,16 @@ document.addEventListener("DOMContentLoaded", function () {
       leaderboardBody.appendChild(row);
       return;
     }
-    data.forEach((entry) => {
+    data.forEach((entry, index) => {
       const row = document.createElement("tr");
       row.innerHTML = `
+                <td>${index + 1}</td>
                 <td>${entry.winner}</td>
                 <td>${entry.timeFormatted}</td>
                 <td>${entry.p1Score}</td>
                 <td>${entry.p2Score}</td>
+                <td>${entry.p1Lives}</td>
+                <td>${entry.p2Lives}</td>
             `;
       leaderboardBody.appendChild(row);
     });

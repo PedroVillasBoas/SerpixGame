@@ -16,8 +16,22 @@ class StorageManager {
     saveResult(result) {
         const leaderboard = this.getLeaderboard();
         leaderboard.push(result);
-        // Sorting by time (fastest first)
-        leaderboard.sort((a, b) => a.timeInSeconds - b.timeInSeconds);
+
+        // Sorting criteria:
+        // 1. Primary sort: Higher winner's score is better.
+        // 2. Secondary sort (tie-breaker): Lower time is better.
+        leaderboard.sort((a, b) => {
+            const winnerAScore = a.winner === "Player 1" ? a.p1Score : a.p2Score;
+            const winnerBScore = b.winner === "Player 1" ? b.p1Score : b.p2Score;
+
+            // Score descending
+            if (winnerBScore !== winnerAScore) {
+                return winnerBScore - winnerAScore;
+            }
+            
+            // Time ascending
+            return a.timeInSeconds - b.timeInSeconds;
+        });
         // Keeping only the top 14 scores
         const topScores = leaderboard.slice(0, 14);
         localStorage.setItem(this.key, JSON.stringify(topScores));
