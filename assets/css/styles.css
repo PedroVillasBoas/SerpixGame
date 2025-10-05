@@ -13,12 +13,11 @@ body {
     margin: 0;
 }
 
-@keyframes move {
-    100% {
-        transform: translate3d(0, 0, 1px) rotate(360deg);
-    }
-}
+/* Keyframes for the background animation */
+@keyframes move { 100% { transform: translate3d(0, 0, 1px) rotate(360deg); } }
 
+/* Keyframes for the modal border animation */
+@keyframes modalRotatingImg { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
 /* ==========================================================================
    2. Layout Styles
@@ -36,7 +35,7 @@ body {
 .header, .footer {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     margin: 1rem 0;
     gap: 1rem;
 }
@@ -54,7 +53,7 @@ body {
 #setup-form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .form-group {
@@ -71,28 +70,73 @@ input[type="text"] {
     border-radius: 5px;
 }
 
-button {
-    padding: 0.75rem;
-    border: none;
-    border-radius: 5px;
-    background-color: #4CAF50;
+.setup-button {
+    width: 10em;
+    position: relative;
+    height: 3.5em;
+    outline: none;
+    background-color: transparent;
     color: white;
-    font-size: 1rem;
+    transition: 1s;
+    border-radius: 0.3em;
+    font-size: 24px;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #45a049;
+.setup-button::before {
+  content: "";
+  transform-origin: center;
+  position: absolute;
+  top: 80%;
+  left: 3%;
+  width: 95%;
+  height: 40%;
+  background-color: #242424;
+  transition: 0.5s;
 }
 
-#leaderboard-btn {
-    background-color: #007BFF;
+.setup-button::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 3%;
+    width: 95%;
+    height: 40%;
+    background-color: #242424;
+    transition: 0.5s;
+    transform-origin: center;
+}
+
+.setup-button:hover::before, .setup-button:hover::after {
+    transform: scale(0);
+}
+
+.setup-button#leaderboard-btn:hover, .setup-button#home-screen-btn:hover {
+    box-shadow: inset 0px 0px 25px #1479EA;
+}
+
+.setup-button#start-game-btn:hover, .setup-button#play-again-btn:hover {
+    box-shadow: inset 0px 0px 25px #86ea14;
+}
+
+#leaderboard-btn, #home-screen-btn {
+    border: 3px ridge #149CEA;
+}
+
+#start-game-btn, #play-again-btn {
+    border: 3px ridge #14ea6d;
+}
+
+#play-again-btn, #home-screen-btn {
+    background-color: #242424;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
     margin-top: 1rem;
-}
-
-#leaderboard-btn:hover {
-    background-color: #0069D9;
 }
 
 /* --- Cards --- */
@@ -109,6 +153,26 @@ button:hover {
     transition: all 0.3s ease;
 }
 
+.player-stats {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.stat img {
+    width: 32px;
+    height: 32px;
+}
+
 /* --- Tables & Lists --- */
 table {
     width: 100%;
@@ -122,7 +186,7 @@ th, td {
 }
 
 th {
-    background-color: #333;
+    background-color: #242424;
 }
 
 ul {
@@ -154,15 +218,43 @@ li {
 }
 
 .modal-content {
-    background-color: #1E1E1E;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 10px;
+    background: #242424;
     position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    min-height: 700px;
+    padding: 0;
     box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.modal-content::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 40%;
+    width: 120px;
+    height: 200%;
+    background-image: linear-gradient(180deg, rgb(0, 183, 255), rgb(255, 48, 255));
+    animation: modalRotatingImg 4s linear infinite;
+    transition: all 0.2s linear;
+}
+
+.modal-content::after {
+    content: '';
+    position: absolute;
+    background: #242424;
+    inset: 5px;
+    border-radius: 15px;
+}
+
+.modal-body {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    color: white;
+    text-align: center;
 }
 
 .close-btn {
@@ -173,6 +265,7 @@ li {
     font-size: 35px;
     font-weight: bold;
     cursor: pointer;
+    z-index: 2;
 }
 
 .close-btn:hover,
@@ -187,7 +280,6 @@ li {
     margin-top: 1.5rem;
 }
 
-
 /* ==========================================================================
    4. Page-Specific Styles
    ========================================================================== */
@@ -200,6 +292,7 @@ li {
 }
 
 .home-container {
+    background-color: #242424;
     max-width: 450px;
 }
 
@@ -223,6 +316,17 @@ body.game-page {
 .footer .events-log {
     flex-grow: 2;
     max-width: 60%;
+}
+
+#game-over-modal .modal-content {
+    min-height: 400px;
+}
+
+.modal-body.center-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 

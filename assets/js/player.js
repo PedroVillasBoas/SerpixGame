@@ -87,7 +87,6 @@ class Player {
       this.lives--;
       this.invincible = true;
       this.lastHitTime = Date.now();
-      this.maxLength = Math.max(20, this.maxLength - 40);
     }
   }
 

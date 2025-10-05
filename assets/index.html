@@ -29,42 +29,35 @@
                 <label for="player2">Player 2 Name (Arrow Keys)</label>
                 <input type="text" id="player2" value="Player 2" required>
             </div>
-            <button type="submit">Start Game</button>
         </form>
-        <button id="leaderboard-btn">
-        <strong>Leaderboard</strong>
-        <div id="container-stars">
-            <div id="stars"></div>
+        <div class="button-group">
+            <button id="start-game-btn" class="setup-button" type="submit" form="setup-form">Start Game</button>
+            <button id="leaderboard-btn" class="setup-button">Leaderboard</button>
         </div>
 
-        <div id="glow">
-            <div class="circle"></div>
-            <div class="circle"></div>
+        <div id="leaderboard-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <span class="close-btn">&times;</span>
+                    <h1>Leaderboard</h1>
+                    <table id="leaderboard-table">
+                        <thead>
+                            <tr>
+                                <th>Winner</th>
+                                <th>Time</th>
+                                <th>P1 Score</th>
+                                <th>P2 Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-        </button>
-    </div>
 
-    <div id="leaderboard-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h3>Leaderboard</h3>
-            <table id="leaderboard-table">
-                <thead>
-                    <tr>
-                        <th>Winner</th>
-                        <th>Time</th>
-                        <th>P1 Score</th>
-                        <th>P2 Score</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <script src="js/storage.js" defer></script>
-    <script src="js/setup.js" defer></script>
+        <script src="js/storage.js" defer></script>
+        <script src="js/setup.js" defer></script>
 </body>
 
 </html>

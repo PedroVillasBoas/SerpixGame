@@ -22,8 +22,16 @@
             <div class="header">
                 <div id="p1-score-card" class="score-card">
                     <h2 id="p1-name">Player 1</h2>
-                    <p>Lives: <span id="p1-lives">3</span></p>
-                    <p>Score: <span id="p1-score">0</span></p>
+                    <div class="player-stats">
+                        <div class="stat">
+                            <img src="visual/sprites/life.png" alt="Lives">
+                            <span id="p1-lives">3</span>
+                        </div>
+                        <div class="stat">
+                            <img src="visual/sprites/score.png" alt="Score">
+                            <span id="p1-score">0</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="timer">
                     <h3>Time</h3>
@@ -31,8 +39,16 @@
                 </div>
                 <div id="p2-score-card" class="score-card">
                     <h2 id="p2-name">Player 2</h2>
-                    <p>Lives: <span id="p2-lives">3</span></p>
-                    <p>Score: <span id="p2-score">0</span></p>
+                    <div class="player-stats">
+                        <div class="stat">
+                            <img src="visual/sprites/life.png" alt="Lives">
+                            <span id="p2-lives">3</span>
+                        </div>
+                        <div class="stat">
+                            <img src="visual/sprites/score.png" alt="Score">
+                            <span id="p2-score">0</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -49,11 +65,13 @@
 
         <div id="game-over-modal" class="modal">
             <div class="modal-content">
-                <h2 id="winner-message"></h2>
-                <p>What would you like to do next?</p>
-                <div class="modal-buttons">
-                    <button id="play-again-btn">Play Again</button>
-                    <button id="home-screen-btn">Home Screen</button>
+                <div class="modal-body center-content">
+                    <h1 id="winner-message"></h1>
+                    <p>What would you like to do next?</p>
+                    <div class="modal-buttons">
+                        <button id="play-again-btn" class="setup-button">Play Again</button>
+                        <button id="home-screen-btn" class="setup-button">Home Screen</button>
+                    </div>
                 </div>
             </div>
         </div>
