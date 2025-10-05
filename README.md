@@ -84,4 +84,6 @@
 
 <hr>
 
-<p><em>Game developed by Pedro Vilas Bôas.</em></p>
+# Made by
+| [<img loading="lazy" src="https://avatars.githubusercontent.com/u/47667167?v=4" width=115><br><sub>Pedro Villas Boas</sub>](https://github.com/PedroVillasBoas) |
+| :---: |
