@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serpix - Setup</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="visual/img/Serpix.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -22,18 +23,27 @@
         <p>A hybrid of Snake, Pong, and Slither.io</p>
         <form id="setup-form">
             <div class="form-group">
-                <label for="player1">Player 1 Name (A/D Keys)</label>
+                <label class="label-p1" for="player1">Player 1 Name</label>
                 <input type="text" id="player1" value="Player 1" required>
             </div>
             <div class="form-group">
-                <label for="player2">Player 2 Name (Arrow Keys)</label>
+                <label class="label-p2" for="player2">Player 2 Name</label>
                 <input type="text" id="player2" value="Player 2" required>
             </div>
         </form>
+        <button id="start-game-btn" class="setup-button" type="submit" form="setup-form">Start Game</button>
         <div class="button-group">
-            <button id="start-game-btn" class="setup-button" type="submit" form="setup-form">Start Game</button>
             <button id="leaderboard-btn" class="setup-button">Leaderboard</button>
+            <button id="tutorial-btn" class="setup-button">Tutorial</button>
         </div>
+        <footer class="home-footer">
+            Game developed by Pedro Vilas Bôas.
+            <a href="https://github.com/PedroVillasBoas" target="_blank"><img src="visual/img/github_icon.svg" alt="GitHub"></a>
+            <a href="https://www.linkedin.com/in/pedro-vilas-b%C3%B4as/" target="_blank"><img src="visual/img/linkedin_icon.svg" alt="LinkedIn"></a>
+            <a href="https://pedrovilasboas.dev/" target="_blank"><img src="visual/img/portfolio_icon.svg" alt="Pedro's Web Portfolio"></a>
+            <a href="https://pedrovilasboas.itch.io/" target="_blank"><img src="visual/img/itch_icon.svg" alt="Pedro's Itch.io"></a>
+        </footer>
+    </div>
 
         <div id="leaderboard-modal" class="modal">
             <div class="modal-content">
@@ -45,16 +55,60 @@
                             <tr>
                                 <th>#</th>
                                 <th>Winner</th>
-                                <th>Time</th>
                                 <th>P1 Score</th>
                                 <th>P2 Score</th>
                                 <th>P1 Lives</th>
                                 <th>P2 Lives</th>
+                                <th>Time</th>
                             </tr>
                         </thead>
                         <tbody>
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="tutorial-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <span class="close-btn">&times;</span>
+                    <h1>Tutorial</h1>
+                    <p>Thank you for playing Serpix! This game was developed by Pedro Vilas Bôas.</p>
+
+                    <h2>Goal</h2>
+                    <p>The goal is to force your friend (or foe, who am I to judge?) to collide with your snake's body. Each player starts with 3
+                        lives. The first player to reduce their friend's lives to zero wins! Eating the bouncing ball
+                        will increase your score and make your snake longer!</p>
+                    <p>Good luck and have fun!</p>
+
+                    <h2>Controls</h2>
+                    <div class="controls-container">
+                        <div class="control-panel">
+                            <h3 class="label-p1">Player 1</h3>
+                            <div class="key-images">
+                                <img src="visual/sprites/p1_left.svg" alt="Player 1 Left">
+                                <img src="visual/sprites/p1_right.svg" alt="Player 1 Right">
+                            </div>
+                            <div class="key-descriptions">
+                                <span>Move Snake Left</span>
+                                <span>Move Snake Right</span>
+                            </div>
+                        </div>
+                        <div class="control-panel">
+                            <h3 class="label-p2">Player 2</h3>
+                            <div class="key-images">
+                                <img src="visual/sprites/p2_left.svg" alt="Player 2 Left">
+                                <img src="visual/sprites/p2_right.svg" alt="Player 2 Right">
+                            </div>
+                            <div class="key-descriptions">
+                                <span>Move Snake Left</span>
+                                <span>Move Snake Right</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2>Thank You For Playing!</h2>
                 </div>
             </div>
         </div>

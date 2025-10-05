@@ -38,7 +38,7 @@ body {
 }
 
 .header,
-.footer {
+.log-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -46,8 +46,43 @@ body {
     gap: 1rem;
 }
 
-.footer {
+.log-container {
     justify-content: center;
+}
+
+.home-footer {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    color: #aaa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 2rem;
+}
+
+.home-footer a {
+    display: inline-block;
+    background-color: #ffffeb;
+    border-radius: 50%;
+    padding: 8px;
+    outline: 2px solid #444;
+    transition: all 0.2s ease-in-out;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+
+.home-footer a:hover {
+    transform: scale(1.1) translateY(-2px);
+    outline-color: #fff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.home-footer img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
 }
 
 
@@ -68,6 +103,17 @@ body {
     text-align: left;
 }
 
+.label-p1 { 
+    color: #1479EA; 
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.label-p2 { 
+    color: #b0305c; 
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
 input[type="text"] {
     padding: 0.5rem;
     border: 1px solid #444;
@@ -77,7 +123,7 @@ input[type="text"] {
 }
 
 .setup-button {
-    width: 10em;
+    width: 100%;
     position: relative;
     height: 3.5em;
     outline: none;
@@ -88,6 +134,7 @@ input[type="text"] {
     font-size: 24px;
     font-weight: bold;
     cursor: pointer;
+    margin-bottom: 3rem;
 }
 
 .setup-button::before {
@@ -129,9 +176,13 @@ input[type="text"] {
     box-shadow: inset 0px 0px 25px #86ea14;
 }
 
+.setup-button#tutorial-btn:hover {
+    box-shadow: inset 0px 0px 25px #f2a65e;
+}
+
 #leaderboard-btn,
 #home-screen-btn {
-    border: 3px ridge #149CEA;
+    border: 3px ridge #41a6f6;
 }
 
 #start-game-btn,
@@ -139,9 +190,19 @@ input[type="text"] {
     border: 3px ridge #14ea6d;
 }
 
+#tutorial-btn {
+    border: 3px ridge #ffe478;
+}
+
 #play-again-btn,
-#home-screen-btn {
+#home-screen-btn,
+#tutorial-btn {
     background-color: #242424;
+}
+
+#start-game-btn {
+    margin-top: 15px;
+    width: 100%;
 }
 
 .button-group {
@@ -217,7 +278,9 @@ li {
     border-bottom: 1px dotted #444;
 }
 
-/* --- Modals --- */
+/* ==========================================================================
+   4. Modal Styles
+   ========================================================================== */
 .modal {
     display: none;
     position: fixed;
@@ -296,8 +359,35 @@ li {
     margin-top: 1.5rem;
 }
 
+/* Tutorial Modal */
+.controls-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0;
+}
+.control-panel {
+    flex: 1;
+}
+.key-images, .key-descriptions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+.key-images img {
+    width: 64px;
+    height: 64px;
+}
+.key-descriptions {
+    font-size: 0.9em;
+    color: #ccc;
+}
+.key-descriptions span {
+    width: 64px;
+    text-align: center;
+}
+
 /* ==========================================================================
-   4. Page-Specific Styles
+   5. Page-Specific Styles
    ========================================================================== */
 
 /* --- Home Page --- */
@@ -309,7 +399,7 @@ li {
 
 .home-container {
     background-color: #242424;
-    max-width: 450px;
+    max-width: 600px;
 }
 
 /* --- Game Page --- */
@@ -329,13 +419,19 @@ body.game-page {
     border: 2px solid #4CAF50;
 }
 
-.footer .events-log {
+.log-container .events-log {
     flex-grow: 2;
     max-width: 60%;
 }
 
 #game-over-modal .modal-content {
     min-height: 400px;
+    max-width: 400px;
+}
+
+#game-over-modal .modal-content .modal-buttons {
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .modal-body.center-content {
@@ -345,19 +441,19 @@ body.game-page {
     align-items: center;
 }
 
-/* --- Effects Canvas Styling --- */
+/* --- Effects Canvas --- */
 #effectsCanvas {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 99; /* Below the modal (100), above everything else */
-    pointer-events: none; /* Allows clicks to pass through to elements behind it */
+    z-index: 99;
+    pointer-events: none;
 }
 
 /* ==========================================================================
-   5. Animation Styles
+   6. Animation Styles
    ========================================================================== */
 
 .background {

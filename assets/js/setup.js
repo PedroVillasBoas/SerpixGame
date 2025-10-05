@@ -5,13 +5,21 @@
 */
 
 document.addEventListener("DOMContentLoaded", function () {
+  // --- Form Elements ---
   const setupForm = document.getElementById("setup-form");
+
+  // --- Leaderboard Modal Elements ---
   const leaderboardBtn = document.getElementById("leaderboard-btn");
   const leaderboardModal = document.getElementById("leaderboard-modal");
-  const closeBtn = document.querySelector(".close-btn");
+  const leaderboardCloseBtn = leaderboardModal.querySelector(".close-btn");
   const leaderboardBody = document.querySelector("#leaderboard-table tbody");
 
-  // Instantiating storage manager to get/add data
+  // --- Tutorial Modal Elements ---
+  const tutorialBtn = document.getElementById("tutorial-btn");
+  const tutorialModal = document.getElementById("tutorial-modal");
+  const tutorialCloseBtn = tutorialModal.querySelector(".close-btn");
+
+  // Instantiate storage manager for leaderboard data
   const storage = new StorageManager();
 
   // Form submission logic
@@ -28,29 +36,40 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Modal control logic
+  // --- Leaderboard Modal Control ---
   leaderboardBtn.addEventListener("click", () => {
     populateLeaderboard(storage.getLeaderboard());
     leaderboardModal.style.display = "flex";
   });
-
-  closeBtn.addEventListener("click", () => {
+  leaderboardCloseBtn.addEventListener("click", () => {
     leaderboardModal.style.display = "none";
   });
 
+  // --- Tutorial Modal Control ---
+  tutorialBtn.addEventListener("click", () => {
+    tutorialModal.style.display = "flex";
+  });
+  tutorialCloseBtn.addEventListener("click", () => {
+    tutorialModal.style.display = "none";
+  });
+
+  // Close modals by clicking on the background
   window.addEventListener("click", (event) => {
     if (event.target == leaderboardModal) {
       leaderboardModal.style.display = "none";
     }
+    if (event.target == tutorialModal) {
+      tutorialModal.style.display = "none";
+    }
   });
 
-  // Populating the leaderboard table
+  // Function to populate the leaderboard table
   function populateLeaderboard(data) {
-    leaderboardBody.innerHTML = "";
+    leaderboardBody.innerHTML = ""; // Clear existing rows
     if (data.length === 0) {
       const row = document.createElement("tr");
       const cell = document.createElement("td");
-      cell.colSpan = 4;
+      cell.colSpan = 7; // Updated to match new column count
       cell.textContent = "No scores yet. Play a game!";
       cell.style.textAlign = "center";
       row.appendChild(cell);
@@ -62,11 +81,11 @@ document.addEventListener("DOMContentLoaded", function () {
       row.innerHTML = `
                 <td>${index + 1}</td>
                 <td>${entry.winner}</td>
-                <td>${entry.timeFormatted}</td>
                 <td>${entry.p1Score}</td>
                 <td>${entry.p2Score}</td>
                 <td>${entry.p1Lives}</td>
                 <td>${entry.p2Lives}</td>
+                <td>${entry.timeFormatted}</td>
             `;
       leaderboardBody.appendChild(row);
     });
