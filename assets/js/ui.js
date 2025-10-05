@@ -2,6 +2,7 @@
   ui.js
   Handles user interface updates and interactions.
   Manages score display, timers, and event logs.
+  Also manages the game over modal and confetti effects.
 */
 
 class UI {
@@ -19,12 +20,25 @@ class UI {
     this.p2Card = document.getElementById("p2-score-card");
 
     // Game Over Modal elements
-    this.gameOverModal = document.getElementById('game-over-modal');
-    this.winnerMessage = document.getElementById('winner-message');
+    this.gameOverModal = document.getElementById("game-over-modal");
+    this.winnerMessage = document.getElementById("winner-message");
 
     // Other elements
     this.stopwatch = document.getElementById("stopwatch");
     this.eventsList = document.getElementById("events-list");
+
+    // Effects Canvas and Particle System for UI effects
+    this.effectsCanvas = document.getElementById("effectsCanvas");
+    this.effectsCtx = this.effectsCanvas.getContext("2d");
+    this.effectsCanvas.width = window.innerWidth;
+    this.effectsCanvas.height = window.innerHeight;
+    this.confettiSystem = new ParticleSystem();
+    this.isConfettiRunning = false;
+
+    window.addEventListener("resize", () => {
+      this.effectsCanvas.width = window.innerWidth;
+      this.effectsCanvas.height = window.innerHeight;
+    });
   }
 
   initialize(player1, player2) {
@@ -67,11 +81,42 @@ class UI {
   }
 
   showGameOver(winnerName) {
-      this.winnerMessage.textContent = `${winnerName} wins!`;
-      this.gameOverModal.style.display = 'flex';
+    this.winnerMessage.textContent = `${winnerName} wins!`;
+    this.gameOverModal.style.display = "flex";
+
+    // Emiting a burst of confetti from the center bottom of the screen
+    const centerX = this.effectsCanvas.width / 2;
+    const centerY = this.effectsCanvas.height / 2 - 300;
+    const colors = ["#4CAF50", "#FFD700", "#149CEA", "#e64c66", "#ffffff"];
+    for (let i = 0; i < 200; i++) {
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      this.confettiSystem.particles.push(
+        new Particle(centerX, centerY, color, 8, 5)
+      );
+    }
+
+    // Starting the animation loop for the confetti
+    if (!this.isConfettiRunning) {
+      this.isConfettiRunning = true;
+      this.runConfettiLoop();
+    }
   }
 
   hideGameOver() {
-      this.gameOverModal.style.display = 'none';
+    this.gameOverModal.style.display = "none";
+    this.gameOverModal.classList.remove("visible");
+  }
+
+  runConfettiLoop() {
+    if (!this.isConfettiRunning) {
+      this.effectsCtx.clearRect(0, 0, this.effectsCanvas.width, this.effectsCanvas.height);
+      return;
+    }
+
+    this.effectsCtx.clearRect(0, 0, this.effectsCanvas.width, this.effectsCanvas.height);
+    this.confettiSystem.update();
+    this.confettiSystem.draw(this.effectsCtx);
+
+    requestAnimationFrame(() => this.runConfettiLoop());
   }
 }

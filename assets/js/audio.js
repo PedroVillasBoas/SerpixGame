@@ -12,7 +12,6 @@ class AudioManager {
 
     loadSounds() {
         // Preload SFX
-        this.sounds.buttonHover = new Audio('audio/buttonHover.wav');
         this.sounds.collide = new Audio('audio/collide.wav');
         this.sounds.eat = new Audio('audio/eat.wav');
         this.sounds.win = new Audio('audio/yay.wav');

@@ -2,6 +2,7 @@
   game.js
   Represents the game instance.
   Manages the game state, including players, ball, and UI.
+  Also manages the particle system for visual effects.
 */
 
 class Game {
@@ -16,6 +17,8 @@ class Game {
     this.input = new InputHandler();
     this.audio = new AudioManager();
     this.audio.loadSounds();
+
+    this.particleSystem = new ParticleSystem();
 
     // Defining controls for both players
     const p1Controls = { left: "a", right: "d" };
@@ -53,9 +56,7 @@ class Game {
 
     // Event Listeners for modals buttons
     document.getElementById('play-again-btn').addEventListener('click', () => this.resetGame());
-    document.getElementById('home-screen-btn').addEventListener('click', () => {
-        window.location.href = 'index.html';
-    });
+    document.getElementById('home-screen-btn').addEventListener('click', () => { window.location.href = 'index.html'; });
   }
 
   // Game to initial state
@@ -73,6 +74,7 @@ class Game {
     this.player1.update(this.input);
     this.player2.update(this.input);
     this.ball.update();
+    this.particleSystem.update();
 
     this.checkCollisions();
     this.ui.updateScoreboard(this.player1, this.player2);
@@ -87,18 +89,21 @@ class Game {
     this.player1.draw(this.ctx);
     this.player2.draw(this.ctx);
     this.ball.draw(this.ctx);
+    this.particleSystem.draw(this.ctx);
   }
 
   // Collision detection and handling
   checkCollisions() {
     // Player Head vs Ball
     if (this.isCircleCollision(this.player1, this.ball)) {
+      this.particleSystem.emit(this.ball.x, this.ball.y, '#FFD700', 30, 4, 6);
       this.player1.grow();
       this.ball.reset();
       this.ui.addEvent(`${this.player1.name} ate the ball!`);
       this.audio.playSound('eat');
     }
     if (this.isCircleCollision(this.player2, this.ball)) {
+      this.particleSystem.emit(this.ball.x, this.ball.y, '#FFD700', 30, 4, 6);
       this.player2.grow();
       this.ball.reset();
       this.ui.addEvent(`${this.player2.name} ate the ball!`);
@@ -123,6 +128,7 @@ class Game {
       const segment = p_body.body[i];
       const dist = Math.hypot(p_head.x - segment.x, p_head.y - segment.y);
       if (dist < p_head.radius + p_body.radius) {
+        this.particleSystem.emit(p_head.x, p_head.y, 'red', 50, 5, 5);
         p_head.loseLife();
         this.ui.addEvent(`${p_head.name} lost a life!`);
         this.audio.playSound('collide');

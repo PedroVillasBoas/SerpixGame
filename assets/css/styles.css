@@ -11,6 +11,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    overflow: hidden;
 }
 
 /* Keyframes for the background animation */
@@ -18,6 +19,9 @@ body {
 
 /* Keyframes for the modal border animation */
 @keyframes modalRotatingImg { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* Keyframes for the modal pop-in animation */
+@keyframes modalPop { from { transform: scale(0.7); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
 /* ==========================================================================
    2. Layout Styles
@@ -238,6 +242,7 @@ li {
     min-height: 700px;
     padding: 0;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    animation: modalPop 0.3s ease-out;
 }
 
 .modal-content::before {
@@ -340,6 +345,16 @@ body.game-page {
     align-items: center;
 }
 
+/* --- Effects Canvas Styling --- */
+#effectsCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99; /* Below the modal (100), above everything else */
+    pointer-events: none; /* Allows clicks to pass through to elements behind it */
+}
 
 /* ==========================================================================
    5. Animation Styles
