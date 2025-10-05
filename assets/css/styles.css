@@ -23,7 +23,8 @@ body {
    2. Layout Styles
    ========================================================================== */
 
-.container, .game-container {
+.container,
+.game-container {
     text-align: center;
     background-color: #1E1E1E;
     padding: 2rem;
@@ -32,7 +33,8 @@ body {
     position: relative;
 }
 
-.header, .footer {
+.header,
+.footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -85,15 +87,15 @@ input[type="text"] {
 }
 
 .setup-button::before {
-  content: "";
-  transform-origin: center;
-  position: absolute;
-  top: 80%;
-  left: 3%;
-  width: 95%;
-  height: 40%;
-  background-color: #242424;
-  transition: 0.5s;
+    content: "";
+    transform-origin: center;
+    position: absolute;
+    top: 80%;
+    left: 3%;
+    width: 95%;
+    height: 40%;
+    background-color: #242424;
+    transition: 0.5s;
 }
 
 .setup-button::after {
@@ -108,27 +110,33 @@ input[type="text"] {
     transform-origin: center;
 }
 
-.setup-button:hover::before, .setup-button:hover::after {
+.setup-button:hover::before,
+.setup-button:hover::after {
     transform: scale(0);
 }
 
-.setup-button#leaderboard-btn:hover, .setup-button#home-screen-btn:hover {
+.setup-button#leaderboard-btn:hover,
+.setup-button#home-screen-btn:hover {
     box-shadow: inset 0px 0px 25px #1479EA;
 }
 
-.setup-button#start-game-btn:hover, .setup-button#play-again-btn:hover {
+.setup-button#start-game-btn:hover,
+.setup-button#play-again-btn:hover {
     box-shadow: inset 0px 0px 25px #86ea14;
 }
 
-#leaderboard-btn, #home-screen-btn {
+#leaderboard-btn,
+#home-screen-btn {
     border: 3px ridge #149CEA;
 }
 
-#start-game-btn, #play-again-btn {
+#start-game-btn,
+#play-again-btn {
     border: 3px ridge #14ea6d;
 }
 
-#play-again-btn, #home-screen-btn {
+#play-again-btn,
+#home-screen-btn {
     background-color: #242424;
 }
 
@@ -140,7 +148,9 @@ input[type="text"] {
 }
 
 /* --- Cards --- */
-.score-card, .timer, .events-log {
+.score-card,
+.timer,
+.events-log {
     background-color: #2a2a2a;
     padding: 1rem;
     border-radius: 8px;
@@ -179,7 +189,8 @@ table {
     border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
     padding: 0.5rem;
     border-bottom: 1px solid #444;
     text-align: left;
@@ -212,7 +223,7 @@ li {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0, 0, 0, 0.6);
     justify-content: center;
     align-items: center;
 }
@@ -226,7 +237,7 @@ li {
     max-width: 600px;
     min-height: 700px;
     padding: 0;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .modal-content::before {
