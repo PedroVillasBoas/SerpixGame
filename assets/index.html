@@ -38,83 +38,88 @@
         </div>
         <footer class="home-footer">
             Game developed by Pedro Vilas Bôas.
-            <a href="https://github.com/PedroVillasBoas" target="_blank"><img src="visual/img/github_icon.svg" alt="GitHub"></a>
-            <a href="https://www.linkedin.com/in/pedro-vilas-b%C3%B4as/" target="_blank"><img src="visual/img/linkedin_icon.svg" alt="LinkedIn"></a>
-            <a href="https://pedrovilasboas.dev/" target="_blank"><img src="visual/img/portfolio_icon.svg" alt="Pedro's Web Portfolio"></a>
-            <a href="https://pedrovilasboas.itch.io/" target="_blank"><img src="visual/img/itch_icon.svg" alt="Pedro's Itch.io"></a>
+            <a href="https://github.com/PedroVillasBoas" target="_blank"><img src="visual/img/github_icon.svg"
+                    alt="GitHub"></a>
+            <a href="https://www.linkedin.com/in/pedro-vilas-b%C3%B4as/" target="_blank"><img
+                    src="visual/img/linkedin_icon.svg" alt="LinkedIn"></a>
+            <a href="https://pedrovilasboas.dev/" target="_blank"><img src="visual/img/portfolio_icon.svg"
+                    alt="Pedro's Web Portfolio"></a>
+            <a href="https://pedrovilasboas.itch.io/" target="_blank"><img src="visual/img/itch_icon.svg"
+                    alt="Pedro's Itch.io"></a>
         </footer>
     </div>
 
-        <div id="leaderboard-modal" class="modal">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <span class="close-btn">&times;</span>
-                    <h1>Leaderboard</h1>
-                    <table id="leaderboard-table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Winner</th>
-                                <th>P1 Score</th>
-                                <th>P2 Score</th>
-                                <th>P1 Lives</th>
-                                <th>P2 Lives</th>
-                                <th>Time</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
+    <div id="leaderboard-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-body">
+                <span class="close-btn">&times;</span>
+                <h1>Leaderboard</h1>
+                <table id="leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Winner</th>
+                            <th>P1 Score</th>
+                            <th>P2 Score</th>
+                            <th>P1 Lives</th>
+                            <th>P2 Lives</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
             </div>
         </div>
+    </div>
 
-        <div id="tutorial-modal" class="modal">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <span class="close-btn">&times;</span>
-                    <h1>Tutorial</h1>
-                    <p>Thank you for playing Serpix! This game was developed by Pedro Vilas Bôas.</p>
+    <div id="tutorial-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-body">
+                <span class="close-btn">&times;</span>
+                <h1>Tutorial</h1>
+                <p>Thank you for playing Serpix! This game was developed by Pedro Vilas Bôas.</p>
 
-                    <h2>Goal</h2>
-                    <p>The goal is to force your friend (or foe, who am I to judge?) to collide with your snake's body. Each player starts with 3
-                        lives. The first player to reduce their friend's lives to zero wins! Eating the bouncing ball
-                        will increase your score and make your snake longer!</p>
-                    <p>Good luck and have fun!</p>
+                <h2>Goal</h2>
+                <p>The goal is to force your friend (or foe, who am I to judge?) to collide with your snake's body. Each
+                    player starts with 3
+                    lives. The first player to reduce their friend's lives to zero wins! Eating the bouncing ball
+                    will increase your score and make your snake longer!</p>
+                <p>Good luck and have fun!</p>
 
-                    <h2>Controls</h2>
-                    <div class="controls-container">
-                        <div class="control-panel">
-                            <h3 class="label-p1">Player 1</h3>
-                            <div class="key-images">
-                                <img src="visual/sprites/p1_left.svg" alt="Player 1 Left">
-                                <img src="visual/sprites/p1_right.svg" alt="Player 1 Right">
-                            </div>
-                            <div class="key-descriptions">
-                                <span>Move Snake Left</span>
-                                <span>Move Snake Right</span>
-                            </div>
+                <h2>Controls</h2>
+                <div class="controls-container">
+                    <div class="control-panel">
+                        <h3 class="label-p1">Player 1</h3>
+                        <div class="key-images">
+                            <img src="visual/sprites/p1_left.svg" alt="Player 1 Left">
+                            <img src="visual/sprites/p1_right.svg" alt="Player 1 Right">
                         </div>
-                        <div class="control-panel">
-                            <h3 class="label-p2">Player 2</h3>
-                            <div class="key-images">
-                                <img src="visual/sprites/p2_left.svg" alt="Player 2 Left">
-                                <img src="visual/sprites/p2_right.svg" alt="Player 2 Right">
-                            </div>
-                            <div class="key-descriptions">
-                                <span>Move Snake Left</span>
-                                <span>Move Snake Right</span>
-                            </div>
+                        <div class="key-descriptions">
+                            <span>Move Snake Left</span>
+                            <span>Move Snake Right</span>
                         </div>
                     </div>
-
-                    <h2>Thank You For Playing!</h2>
+                    <div class="control-panel">
+                        <h3 class="label-p2">Player 2</h3>
+                        <div class="key-images">
+                            <img src="visual/sprites/p2_left.svg" alt="Player 2 Left">
+                            <img src="visual/sprites/p2_right.svg" alt="Player 2 Right">
+                        </div>
+                        <div class="key-descriptions">
+                            <span>Move Snake Left</span>
+                            <span>Move Snake Right</span>
+                        </div>
+                    </div>
                 </div>
+
+                <h2>Thank You For Playing!</h2>
             </div>
         </div>
+    </div>
 
-        <script src="js/storage.js" defer></script>
-        <script src="js/setup.js" defer></script>
+    <script src="js/storage.js" defer></script>
+    <script src="js/setup.js" defer></script>
 </body>
 
 </html>
