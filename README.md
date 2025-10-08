@@ -6,6 +6,11 @@
     movement of Slither.io. Developed purely with vanilla HTML, CSS, and JavaScript, Serpix is a lightweight,
     offline-first browser game designed for local multiplayer fun!
 </p>
+<h1>Where to Play</h1>
+<p>
+    You can play the game directly on <a href="https://pedrovillasboas.github.io/SerpixGame/">Serpix</a>.
+</p>
+
 
 <h1>Gameplay & Features</h1>
 <p>
