@@ -24,13 +24,13 @@ class Particle {
     return this.lifespan <= 0;
   }
 
-  update() {
+  update(deltaTime) {
     this.lifespan--;
     this.vx *= this.friction;
     this.vy *= this.friction;
     this.vy += this.gravity;
-    this.x += this.vx;
-    this.y += this.vy;
+    this.x += this.vx * deltaTime;
+    this.y += this.vy * deltaTime;
   }
 
   draw(ctx) {

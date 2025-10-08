@@ -20,7 +20,7 @@ class Player {
     this.canvasHeight = canvasHeight;
 
     this.radius = 10;                           // Head radius
-    this.speed = 3;                             // Movement speed
+    this.speed = 3.5;                             // Movement speed
     this.angle = Math.random() * 2 * Math.PI;
     this.turnSpeed = 0.05;                      // Turning speed
 
@@ -44,7 +44,7 @@ class Player {
     this.lastHitTime = 0;
   }
 
-  update(inputHandler) {
+  update(inputHandler, deltaTime) {
     // Checking if invincibility period has expired
     if (this.invincible && Date.now() - this.lastHitTime > this.invincibilityDuration) {
       this.invincible = false;
@@ -52,15 +52,15 @@ class Player {
 
     // Handles turning
     if (inputHandler.isKeyPressed(this.controls.left)) {
-      this.angle -= this.turnSpeed;
+      this.angle -= this.turnSpeed * deltaTime;
     }
     if (inputHandler.isKeyPressed(this.controls.right)) {
-      this.angle += this.turnSpeed;
+      this.angle += this.turnSpeed * deltaTime;
     }
 
     // Move Head
-    this.x += Math.cos(this.angle) * this.speed;
-    this.y += Math.sin(this.angle) * this.speed;
+    this.x += Math.cos(this.angle) * this.speed * deltaTime;
+    this.y += Math.sin(this.angle) * this.speed * deltaTime;
 
     // Screen Wrap
     if (this.x < 0) this.x = this.canvasWidth;

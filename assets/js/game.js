@@ -71,10 +71,11 @@ class Game {
   update(deltaTime) {
     if (this.isGameOver) return;
 
-    this.player1.update(this.input);
-    this.player2.update(this.input);
-    this.ball.update();
-    this.particleSystem.update();
+    // Normalizing deltaTime to roughly 60fps
+    this.player1.update(this.input, (deltaTime / 16)); 
+    this.player2.update(this.input, (deltaTime / 16));
+    this.ball.update((deltaTime / 16));
+    this.particleSystem.update((deltaTime / 16));
 
     this.checkCollisions();
     this.ui.updateScoreboard(this.player1, this.player2);

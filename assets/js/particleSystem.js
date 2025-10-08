@@ -16,10 +16,10 @@ class ParticleSystem {
     }
   }
 
-  update() {
+  update(deltaTime) {
     // Looping backwards to safely remove items while iterating
     for (let i = this.particles.length - 1; i >= 0; i--) {
-      this.particles[i].update();
+      this.particles[i].update(deltaTime);
       if (this.particles[i].isFinished()) {
         this.particles.splice(i, 1);
       }

@@ -9,6 +9,7 @@ class Ball {
     this.canvasWidth = canvasWidth;
     this.canvasHeight = canvasHeight;
     this.radius = radius;
+    this.speed = 5;
     this.reset();
   }
 
@@ -18,15 +19,18 @@ class Ball {
 
     // Random initial velocity
     let angle = Math.random() * 2 * Math.PI;
-    this.vx = Math.cos(angle) * 4;
-    this.vy = Math.sin(angle) * 4;
+    this.vx = Math.cos(angle);
+    this.vy = Math.sin(angle);
   }
 
-  update() {
-    this.x += this.vx;
-    this.y += this.vy;
+  update(deltaTime) {
+    if (!deltaTime) return; // Prevents issues on the first frame
 
-    // Bounce off map walls
+    // Moving Ball
+    this.x += this.vx * this.speed * deltaTime;
+    this.y += this.vy * this.speed * deltaTime;
+
+    // Bouncing off map walls
     if (this.x - this.radius < 0 || this.x + this.radius > this.canvasWidth) {
       this.vx *= -1;
     }
