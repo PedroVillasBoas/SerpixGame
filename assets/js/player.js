@@ -78,7 +78,7 @@ class Player {
   }
 
   grow() {
-    this.maxLength += 20;      // Increase length by 20 points
+    this.maxLength += 10; // Increase length by 10 points
     this.score++;
   }
 
