@@ -8,7 +8,7 @@
 </p>
 <h1>Where to Play</h1>
 <p>
-    You can play the game directly on <a href="https://pedrovillasboas.github.io/SerpixGame/">Serpix</a>.
+    You can play the game directly on <a href="https://pedrovillasboas.github.io/SerpixGame/" target="_blank">Serpix</a>.
 </p>
 
 
