@@ -4,9 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { socket } from "../lib/socket";
 import { TutorialModal } from "../components/ui/TutorialModal";
 import { SocialsList } from "../components/ui/SocialsList";
+import { AnimatedInput } from '../components/ui/AnimatedInput';
 
 export default function SetupPage() {
-  const [playerName, setPlayerName] = useState("Player");
+  const [playerName, setPlayerName] = useState("");
   const [status, setStatus] = useState("Connecting...");
 
   const [isTutorialOpen, setIsTutorialOpen] = useState(false);
@@ -54,11 +55,15 @@ export default function SetupPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (socket.connected) {
-      setStatus("Looking for game...");
-      socket.emit("findGame", playerName);
+    const trimmedName = playerName.trim();
+
+    if (socket.connected && trimmedName) {
+      setStatus('Looking for game...');
+      socket.emit('findGame', trimmedName);
+    } else if (!trimmedName) {
+      setStatus('Please enter a name.');
     } else {
-      setStatus("Not connected to server.");
+      setStatus('Not connected to server.');
     }
   };
 
@@ -86,26 +91,17 @@ export default function SetupPage() {
             onSubmit={handleSubmit}
             className="flex flex-col gap-4"
           >
-            <div className="flex flex-col text-left">
-              <label
-                htmlFor="player"
-                className="mb-2 font-bold text-lg text-blue-400"
-              >
-                Your Name
-              </label>
-              <input
-                type="text"
-                id="player"
-                value={playerName}
-                onChange={(e) => setPlayerName(e.target.value)}
-                className="p-2 border border-gray-600 bg-gray-700 text-white rounded-md"
-                required
-              />
-            </div>
+            <AnimatedInput
+              id="player"
+              label="Your Name"
+              value={playerName}
+              onChange={(e) => setPlayerName(e.target.value)}
+              required={true}
+            />
 
             <button
               type="submit"
-              className="w-full h-[3.5em] text-2xl font-bold text-white bg-[#242424] border-4 border-green-500 rounded-md transition-all hover:shadow-[inset_0_0_25px_#86ea14]"
+              className="w-full h-[3.5em] text-2xl font-bold text-white bg-[#242424] border-4 border-green-500 rounded-md transition-all hover:shadow-[inset_0_0_25px_#86ea14] mt-4"
               disabled={status !== "Connected. Ready to play!"}
             >
               Find Game

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-
+/* --- Social Links Styles --- */
 .social-links-list {
     list-style: none;
     display: flex;
@@ -109,3 +109,50 @@
 .social-links-list .icon-content a[data-social="portfolio"]~.tooltip {
     background-color: #00adb5;
 }
+/* --- End Social Links Styles --- */
+
+/* --- Animated Input Styles --- */
+.animated-form-control {
+  position: relative;
+  margin: 10px 0 20px;
+  width: 100%;
+}
+
+.animated-form-control input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px #fff solid;
+  display: block;
+  width: 100%;
+  padding: 15px 0 5px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.animated-form-control input:focus,
+.animated-form-control input:valid {
+  outline: 0;
+  border-bottom-color: #41a6f6;
+}
+
+.animated-form-control label {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  pointer-events: none;
+}
+
+.animated-form-control label span {
+  display: inline-block;
+  font-size: 18px;
+  min-width: 5px;
+  color: #fff;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.animated-form-control input:focus+label span,
+.animated-form-control input:valid+label span {
+  color: #41a6f6;
+  transform: translateY(-30px);
+}
+/* --- End Animated Input Styles --- */

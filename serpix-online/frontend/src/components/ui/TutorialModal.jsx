@@ -23,22 +23,23 @@ export function TutorialModal({ isOpen, onClose }) {
         </span>
 
         {/* Tutorial Content */}
-        <h1 className="text-3xl font-bold text-center mb-4">Tutorial</h1>
-        <p className="text-gray-300">Thank you for playing Serpix!</p>
+        <h1 className="text-3xl text-white font-bold text-center mb-4">Tutorial</h1>
+        <p className="text-center text-gray-300">Thank you for playing Serpix!</p>
 
         <h2 className="text-2xl font-bold mt-6 mb-2 text-yellow-400">Goal</h2>
         <p className="text-gray-300">
           The goal is to force your opponent to collide with your snake's body.
-          Each player starts with 3 lives. The first player to reduce their
-          opponent's lives to zero wins! Eating the bouncing ball will increase
-          your score and make your snake longer!
+          <br />
+          Each player starts with 3 lives. The first player to reduce their opponent's lives to zero wins!
+          <br />
+          Eating the bouncing ball will increase your score and make your snake longer!
         </p>
         <p className="text-gray-300 mt-2">Good luck and have fun!</p>
 
         <h2 className="text-2xl font-bold mt-6 mb-4 text-yellow-400">
           Controls
         </h2>
-        <p className="text-center text-gray-400 mb-4">
+        <p className="text-gray-300 mb-4">
           Serpix has 2 control schemes. Choose the set that works best for you!
         </p>
         <div className="flex justify-around my-4">
@@ -86,7 +87,7 @@ export function TutorialModal({ isOpen, onClose }) {
           </div>
         </div>
 
-        <h2 className="text-2xl font-bold text-center mt-8">
+        <h2 className="text-2xl text-white font-bold text-center mt-8">
           Thank You For Playing!
         </h2>
       </div>
