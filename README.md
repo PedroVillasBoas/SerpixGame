@@ -1,5 +1,6 @@
 <img src="assets/visual/img/logo.png" alt="Serpix Logo">
-<h1>A Snake, Pong & Slither.io Hybrid Game</h1>
+<h1>A Snake, Pong & Slither.io Hybrid Game.</h1>
+<h1>Now Online!</h1>
 <p>
     Serpix is a fast-paced, two-player arcade game created by Pedro Vilas Bôas. It combines the classic
     body-growing mechanics of Snake with the competitive, head-to-head action of Pong and the continuous
