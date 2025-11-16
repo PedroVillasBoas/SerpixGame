@@ -59,8 +59,8 @@ export function TutorialModal({ isOpen, onClose }) {
               />
             </div>
             <div className="flex justify-center gap-4 text-sm text-gray-300 mt-2">
-              <span className="w-16 text-center">Turn Left</span>
-              <span className="w-16 text-center">Turn Right</span>
+              <span className="w-16 text-center">Go Left</span>
+              <span className="w-16 text-center">Go Right</span>
             </div>
           </div>
           {/* Player 2 Controls */}
@@ -79,8 +79,8 @@ export function TutorialModal({ isOpen, onClose }) {
               />
             </div>
             <div className="flex justify-center gap-4 text-sm text-gray-300 mt-2">
-              <span className="w-16 text-center">Turn Left</span>
-              <span className="w-16 text-center">Turn Right</span>
+              <span className="w-16 text-center">Go Left</span>
+              <span className="w-16 text-center">Go Right</span>
             </div>
           </div>
         </div>
