@@ -11,7 +11,7 @@ const httpServer = createServer(app);
 
 const io = new Server(httpServer, {
   cors: {
-    origin: "http://localhost:5173", // Frontend URL
+    origin: "https://serpix-game.vercel.app/", // Frontend URL
     methods: ["GET", "POST"],
   },
 });

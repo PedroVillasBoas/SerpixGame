@@ -2,7 +2,7 @@
 import { io } from 'socket.io-client';
 
 // URL of Backend Server
-const URL = 'http://localhost:3001';
+const URL = 'https://serpixgamebackend.onrender.com';
 
 export const socket = io(URL, {
   autoConnect: false // I'll connect manually. So, no automatic connection on import
