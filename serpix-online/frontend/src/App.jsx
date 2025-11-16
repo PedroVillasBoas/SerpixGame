@@ -1,47 +1,35 @@
 // frontend/src/App.jsx
-import { useState, useEffect } from 'react';
-import { socket } from './lib/socket';
+import React from "react";
+import { Outlet } from "react-router-dom";
 
-function App() {
-  const [isConnected, setIsConnected] = useState(socket.connected);
-
-  useEffect(() => {
-    function onConnect() {
-      console.log('Connected to server!');
-      setIsConnected(true);
-    }
-
-    function onDisconnect() {
-      console.log('Disconnected from server!');
-      setIsConnected(false);
-    }
-
-    // Connecting to the server
-    socket.connect();
-
-    // Event listeners
-    socket.on('connect', onConnect);
-    socket.on('disconnect', onDisconnect);
-
-    // Cleaning up on Component Unmount
-    return () => {
-      socket.off('connect', onConnect);
-      socket.off('disconnect', onDisconnect);
-      socket.disconnect();
-    };
-  }, []);
-
+function AnimatedBackground() {
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center">
-      <h1 className="text-3xl font-bold mb-4">Serpix Online</h1>
-      <p className="text-lg">
-        Server Connection: {isConnected ? 
-          <span className="text-green-500 font-bold">Connected</span> : 
-          <span className="text-red-500 font-bold">Disconnected</span>
-        }
-      </p>
+    <div className="background fixed inset-0 -z-10 overflow-hidden bg-[#121212]">
+      {/* This uses Tailwind's arbitrary value support to create the same effect as in my original Serpix Game page */}
+      <span className="absolute w-[20vmin] h-[20vmin] rounded-[20vmin] text-[#b0305c] top-[88%] left-[22%] animate-[move_100s_linear_infinite_reverse] shadow-[-40vmin_0_5.4vmin_currentColor]"></span>
+      <span className="absolute w-[20vmin] h-[20vmin] rounded-[20vmin] text-[#4b5bab] top-[42%] left-[84%] animate-[move_130s_linear_infinite_reverse] shadow-[40vmin_0_5.9vmin_currentColor]"></span>
+      <span className="absolute w-[20vmin] h-[20vmin] rounded-[20vmin] text-[#4b5bab] top-[64%] left-[9%] animate-[move_53s_linear_infinite_reverse] shadow-[-40vmin_0_5.1vmin_currentColor]"></span>
+      <span className="absolute w-[20vmin] h-[20vmin] rounded-[20vmin] text-[#4b5bab] top-[87%] left-[91%] animate-[move_81s_linear_infinite_reverse] shadow-[40vmin_0_5.3vmin_currentColor]"></span>
+      <span className="absolute w-[20vmin] h-[20vmin] rounded-[20vmin] text-[#b0305c] top-[13%] left-[33%] animate-[move_97s_linear_infinite_reverse] shadow-[40vmin_0_5.1vmin_currentColor]"></span>
+      <span className="absolute w-[20vmin] h-[20vmin] rounded-[20vmin] text-[#b0305c] top-[51%] left-[55%] animate-[move_42s_linear_infinite_reverse] shadow-[40vmin_0_5.3vmin_currentColor]"></span>
+      <span className="absolute w-[20vmin] h-[20vmin] rounded-[20vmin] text-[#3ca370] top-[87%] left-[40%] animate-[move_33s_linear_infinite_reverse] shadow-[40vmin_0_5.4vmin_currentColor]"></span>
+      <span className="absolute w-[20vmin] h-[20vmin] rounded-[20vmin] text-[#b0305c] top-[79%] left-[86%] animate-[move_79s_linear_infinite_reverse] shadow-[-40vmin_0_5.7vmin_currentColor]"></span>
+      <span className="absolute w-[20vmin] h-[20vmin] rounded-[20vmin] text-[#4b5bab] top-[77%] left-[38%] animate-[move_7s_linear_infinite_reverse] shadow-[-40vmin_0_5.9vmin_currentColor]"></span>
+      <span className="absolute w-[20vmin] h-[20vmin] rounded-[20vmin] text-[#4b5bab] top-[47%] left-[85%] animate-[move_96s_linear_infinite_reverse] shadow-[40vmin_0_5.3vmin_currentColor]"></span>
     </div>
-  )
+  );
 }
 
-export default App
+function App() {
+  return (
+    <div className="relative min-h-screen">
+      <AnimatedBackground />
+      {/* The Outlet renders the current route (SetupPage or GamePage) */}
+      <main className="relative z-10">
+        <Outlet />
+      </main>
+    </div>
+  );
+}
+
+export default App;
