@@ -39,13 +39,13 @@ export function TutorialModal({ isOpen, onClose }) {
           Controls
         </h2>
         <p className="text-center text-gray-400 mb-4">
-          This game uses the same controls for both players (A/D or Left/Right
-          arrows).
+          Serpix uses the same controls for both players. Choose the set that
+          works best for you!
         </p>
         <div className="flex justify-around my-4">
-          {/* Player 1 Controls */}
+          {/* Recommended Controls */}
           <div className="flex-1 text-center">
-            <h3 className="text-xl font-bold text-blue-400 mb-3">Player 1</h3>
+            <h3 className="text-xl font-bold text-blue-400 mb-3">Recommended</h3>
             <div className="flex justify-center gap-4">
               <img
                 src="/assets/visual/sprites/p1_left.svg"
@@ -63,9 +63,9 @@ export function TutorialModal({ isOpen, onClose }) {
               <span className="w-16 text-center">Go Right</span>
             </div>
           </div>
-          {/* Player 2 Controls */}
+          {/* Alternative Controls */}
           <div className="flex-1 text-center">
-            <h3 className="text-xl font-bold text-red-500 mb-3">Player 2</h3>
+            <h3 className="text-xl font-bold text-red-500 mb-3">Alternative</h3>
             <div className="flex justify-center gap-4">
               <img
                 src="/assets/visual/sprites/p2_left.svg"
