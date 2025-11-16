@@ -1,4 +1,4 @@
-<img src="assets/visual/img/logo.png" alt="Serpix Logo">
+<img src="serpix-online/frontend/public/assets/visual/img/logo.png" alt="Serpix Logo">
 <h1>A Snake, Pong & Slither.io Hybrid Game.</h1>
 <h1>Now Online!</h1>
 <p>
@@ -9,7 +9,7 @@
 </p>
 <h1>Where to Play</h1>
 <p>
-    You can play the game directly on <a href="https://pedrovillasboas.github.io/SerpixGame/" target="_blank">Serpix</a>.
+    You can play the game directly on <a href="https://serpix-game.vercel.app/" target="_blank">Serpix</a>.
 </p>
 
 
