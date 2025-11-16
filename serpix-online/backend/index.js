@@ -9,9 +9,14 @@ const app = express();
 app.use(cors());
 const httpServer = createServer(app);
 
+const allowedOrigins = [
+  "https://serpix-game.vercel.app",
+  "https://serpix-game.vercel.app/"
+];
+
 const io = new Server(httpServer, {
   cors: {
-    origin: "https://serpix-game.vercel.app/", // Frontend URL
+    origin: allowedOrigins, // Frontend URLs
     methods: ["GET", "POST"],
   },
 });
