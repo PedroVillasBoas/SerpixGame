@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { socket } from "../lib/socket";
 import { TutorialModal } from "../components/ui/TutorialModal";
+import { SocialsList } from "../components/ui/SocialsList";
 
 export default function SetupPage() {
   const [playerName, setPlayerName] = useState("Player");
@@ -64,10 +65,10 @@ export default function SetupPage() {
   const buttonBaseStyle =
     "flex-1 h-[3.5em] text-xl font-bold text-white bg-[#242424] border-4 rounded-md transition-all";
 
-  // I'll will port the leaderboard later
   return (
     <>
-      <div className="flex justify-center items-center min-h-screen">
+      <div className="flex flex-col sm:flex-row justify-center items-center min-h-screen gap-8 p-4">
+        {/* Form Card */}
         <div className="text-center bg-[#242424] p-8 rounded-lg shadow-xl max-w-md w-full">
           <img
             src="/assets/visual/img/logo.png"
@@ -75,7 +76,9 @@ export default function SetupPage() {
             className="mx-auto mb-4 max-w-[80%]"
           />
           <p className="mb-6 text-gray-300">
-            A hybrid of Snake, Pong, and Slither.io... now online!
+            A hybrid of Snake, Pong, and Slither.io.
+            <br />
+            Now online!
           </p>
 
           <form
@@ -126,6 +129,16 @@ export default function SetupPage() {
               Tutorial
             </button>
           </div>
+
+          {/* Dev Credit */}
+          <p className="mt-6 text-sm text-gray-400">
+            Game Developed by Pedro Vilas Bôas
+          </p>
+        </div>
+    
+        {/* Socials */}
+        <div className="text-center bg-[#242424] p-2 rounded-lg shadow-xl max-w-md">
+          <SocialsList />
         </div>
       </div>
 

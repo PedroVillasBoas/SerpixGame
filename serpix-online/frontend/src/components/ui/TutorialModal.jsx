@@ -39,13 +39,14 @@ export function TutorialModal({ isOpen, onClose }) {
           Controls
         </h2>
         <p className="text-center text-gray-400 mb-4">
-          Serpix uses the same controls for both players. Choose the set that
-          works best for you!
+          Serpix has 2 control schemes. Choose the set that works best for you!
         </p>
         <div className="flex justify-around my-4">
           {/* Recommended Controls */}
           <div className="flex-1 text-center">
-            <h3 className="text-xl font-bold text-blue-400 mb-3">Recommended</h3>
+            <h3 className="text-xl font-bold text-blue-400 mb-3">
+              Recommended
+            </h3>
             <div className="flex justify-center gap-4">
               <img
                 src="/assets/visual/sprites/p1_left.svg"
